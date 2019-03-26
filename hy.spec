@@ -13,6 +13,8 @@ BuildArch:      noarch
 
 BuildRequires:  python3-devel
 BuildRequires:  python3dist(fastentrypoints)
+BuildRequires:  python3dist(funcparserlib)
+BuidlRequires:  python3dist(rply) >= 0.7.7
 BuildRequires:  python3dist(setuptools)
 
 Requires:       python3dist(astor) >= 0.7.1
@@ -20,7 +22,6 @@ Requires:       python3dist(clint) >= 0.4
 Requires:       python3dist(funcparserlib) >= 0.3.6
 Requires:       python3dist(rply) >= 0.7.7
 Requires:       python3dist(setuptools)
-Requires:       python3dist(clint)
 Requires:       python3dist(funcparserlib)
 
 %description
