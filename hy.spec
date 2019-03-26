@@ -1,7 +1,7 @@
 # Created by pyp2rpm-3.3.2
 %global pypi_name hy
 
-Name:           python-%{pypi_name}
+Name:           %{pypi_name}
 Version:        0.16.0
 Release:        1%{?dist}
 Summary:        Lisp and Python love each other
@@ -12,26 +12,20 @@ Source0:        https://files.pythonhosted.org/packages/source/h/%{pypi_name}/%{
 BuildArch:      noarch
 
 BuildRequires:  python3-devel
+BuildRequires:  python3dist(fastentrypoints)
 BuildRequires:  python3dist(setuptools)
-
-%description
-Hy is a Python <--> Lisp layer. It helps make things work nicer, and lets
-Python and the Hy lisp variant play nice together.
-
-%package -n     python3-%{pypi_name}
-Summary:        %{summary}
-%{?python_provide:%python_provide python3-%{pypi_name}}
 
 Requires:       python3dist(astor) >= 0.7.1
 Requires:       python3dist(clint) >= 0.4
 Requires:       python3dist(funcparserlib) >= 0.3.6
 Requires:       python3dist(rply) >= 0.7.7
 Requires:       python3dist(setuptools)
-Requires:       python3dist(fastentrypoints)
-%description -n python3-%{pypi_name}
+Requires:       python3dist(clint)
+Requires:       python3dist(funcparserlib)
+
+%description
 Hy is a Python <--> Lisp layer. It helps make things work nicer, and lets
 Python and the Hy lisp variant play nice together.
-
 
 %prep
 %autosetup -n %{pypi_name}-%{version}
@@ -44,7 +38,7 @@ rm -rf %{pypi_name}.egg-info
 %install
 %py3_install
 
-%files -n python3-%{pypi_name}
+%files
 %license LICENSE
 %doc README.md
 %{_bindir}/hy
