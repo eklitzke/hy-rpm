@@ -12,9 +12,11 @@ Source0:        https://files.pythonhosted.org/packages/source/h/%{pypi_name}/%{
 BuildArch:      noarch
 
 BuildRequires:  python3-devel
+BuildRequires:  python3dist(astor) >= 0.7.1
+BuildRequires:  python3dist(clint) >= 0.4
 BuildRequires:  python3dist(fastentrypoints)
 BuildRequires:  python3dist(funcparserlib)
-BuidlRequires:  python3dist(rply) >= 0.7.7
+BuildRequires:  python3dist(rply) >= 0.7.7
 BuildRequires:  python3dist(setuptools)
 
 Requires:       python3dist(astor) >= 0.7.1
@@ -38,6 +40,9 @@ rm -rf %{pypi_name}.egg-info
 
 %install
 %py3_install
+
+# TODO: uh, is this ok to do?
+rm -rf %{buildroot}/%{_prefix}/get_version/
 
 %files
 %license LICENSE
